@@ -40,7 +40,6 @@
 <body>
   <a-scene
     webxr="overlayElement:#dom-overlay;"
-    background="color:skyblue;"
     reflection="directionalLight:#dirlight;"
     ar-hit-test="target:#my-objects;footprintDepth:0.2;"
     shadow="type: pcfsoft"
@@ -48,11 +47,11 @@
     ar-cursor raycaster="objects: #my-objects *"
   >
     <a-assets>
-      <a-asset-item id="spino" src="./assets/big_ben.glb"></a-asset-item>
+      <a-asset-item id="tower" src="./assets/big_ben.glb"></a-asset-item>
     </a-assets>
     <a-camera position="0 1.6 1"></a-camera> <!-- Adjusted camera position -->
     <a-light id="dirlight" auto-shadow-cam intensity="0.7" light="castShadow:true;type:directional" position="10 10 10"></a-light>
-    <a-light hide-on-enter-ar intensity="0.3" light="type:hemisphere;color:yellow;groundColor:blue;" position="10 10 10"></a-light>
+    <a-light hide-on-enter-ar intensity="0.3" light="type:hemisphere;" position="10 10 10"></a-light>
     <a-entity hide-on-enter-ar environment="lighting:none;shadow:true;"></a-entity>
     <!-- This plane is only visible in AR and follows the given target to provide it with shadows.-->
     <a-entity
@@ -64,7 +63,7 @@
     ></a-entity>
     <!-- This is hidden when the user first enters AR but becomes visible when the user can place it -->
     <a-entity hide-on-hit-test-start shadow id="my-objects" scale="0.1 0.1 0.1" position="0 0 0"> <!-- Adjusted scale and position -->
-      <a-gltf-model position="0 -0.1 0" src="#spino"> <!-- Adjusted position -->
+      <a-gltf-model position="0 -0.1 0" src="#tower"> <!-- Adjusted position -->
       </a-gltf-model>
     </a-entity>
   </a-scene>
